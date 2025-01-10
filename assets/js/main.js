@@ -179,11 +179,11 @@
   /**
    * Testimonials slider
    */
-  new Swiper('.services-slider', {
-    speed: 600,
+  const mySwiper = new Swiper('.services-slider', {
+    speed: 1000,
     loop: true,
     autoplay: {
-      delay: 5000,
+      delay: 1500,
       disableOnInteraction: false
     },
     slidesPerView: 'auto',
@@ -206,6 +206,14 @@
         spaceBetween: 20
       }
     }
+  });
+
+  on('mouseenter', '.services-slider', function(e){
+    mySwiper.autoplay.stop();
+  });
+
+  on('mouseleave', '.services-slider', function(e){
+    mySwiper.autoplay.start();
   });
 
   /**
