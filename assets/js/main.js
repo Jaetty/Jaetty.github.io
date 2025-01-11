@@ -255,7 +255,7 @@
   /**
    * Portfolio details slider
    */
-  new Swiper('.portfolio-details-slider', {
+  const folioSwiper = new Swiper('.portfolio-details-slider', {
     speed: 400,
     loop: true,
     autoplay: {
@@ -267,6 +267,14 @@
       type: 'bullets',
       clickable: true
     }
+  });
+
+  on('mouseenter', '.portfolio-details-slider', function(e){
+    folioSwiper.autoplay.stop();
+  });
+
+  on('mouseleave', '.portfolio-details-slider', function(e){
+    folioSwiper.autoplay.start();
   });
 
 })()
